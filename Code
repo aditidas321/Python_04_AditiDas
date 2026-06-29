@@ -1,0 +1,101 @@
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b
+
+def div(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return a / b
+
+while True:
+    print("\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Exit")
+    ch = int(input("Enter Choice: "))
+
+    if ch == 5:
+        break
+
+    a = float(input("Enter First Number: "))
+    b = float(input("Enter Second Number: "))
+
+    if ch == 1:
+        print("Result:", add(a, b))
+    elif ch == 2:
+        print("Result:", sub(a, b))
+    elif ch == 3:
+        print("Result:", mul(a, b))
+    elif ch == 4:
+        print("Result:", div(a, b))
+    else:
+        print("Invalid Choice")
+
+def display(name, roll, branch, sem):
+    print("\nStudent Information")
+    print("Name:", name)
+    print("Roll No:", roll)
+    print("Branch:", branch)
+    print("Semester:", sem)
+
+name = input("Enter Name: ")
+roll = input("Enter Roll No: ")
+branch = input("Enter Branch: ")
+sem = input("Enter Semester: ")
+
+display(name, roll, branch, sem)
+
+marks = []
+
+for i in range(5):
+    marks.append(float(input(f"Enter Marks of Subject {i+1}: ")))
+
+total = sum(marks)
+percentage = total / 5
+
+if percentage >= 90:
+    grade = "A"
+elif percentage >= 80:
+    grade = "B"
+elif percentage >= 70:
+    grade = "C"
+elif percentage >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print("\nTotal Marks:", total)
+print("Percentage:", percentage)
+print("Grade:", grade)
+
+name = input("Enter Name: ")
+roll = input("Enter Roll No: ")
+branch = input("Enter Branch: ")
+marks = input("Enter Marks: ")
+
+with open("student_data.txt", "w") as f:
+    f.write(f"Name: {name}\n")
+    f.write(f"Roll No: {roll}\n")
+    f.write(f"Branch: {branch}\n")
+    f.write(f"Marks: {marks}\n")
+
+print("Student Record Saved Successfully")
+
+print("\nReading File...\n")
+with open("student_data.txt", "r") as f:
+    print(f.read())
+website = input("Website: ")
+username = input("Username: ")
+password = input("Password: ")
+
+with open("password_vault.txt", "a") as f:
+    f.write(f"Website: {website}\n")
+    f.write(f"Username: {username}\n")
+    f.write(f"Password: {password}\n\n")
+
+print("\nSaved Successfully\n")
+
+with open("password_vault.txt", "r") as f:
+    print(f.read())
